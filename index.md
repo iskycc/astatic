@@ -70,7 +70,7 @@ JSON.parse(localStorage.getItem('token')).refresh_token
 
 全本地资源下载地址：
 
-https://om.ink.icu/AShare.exe
+https://gitee.com/iskycc/astatic/attach_files/649032/download/AShare.exe
 
 静态资源加速版本(推荐)：
 
@@ -80,7 +80,7 @@ https://om.ink.icu/server/AShare.exe
 
 下载地址：
 
-https://om.ink.icu/AShare
+https://gitee.com/iskycc/astatic/attach_files/649031/download/AShare
 
 静态资源加速版本(推荐)：
 
