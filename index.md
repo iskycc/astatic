@@ -74,7 +74,7 @@ https://gitee.com/iskycc/astatic/attach_files/649032/download/AShare.exe
 
 静态资源加速版本(推荐)：
 
-https://om.ink.icu/server/AShare.exe
+https://gitee.com/iskycc/astatic/attach_files/649034/download/AShare.exe
 
 #linux版本
 
@@ -84,11 +84,11 @@ https://gitee.com/iskycc/astatic/attach_files/649031/download/AShare
 
 静态资源加速版本(推荐)：
 
-https://om.ink.icu/server/AShare
+https://gitee.com/iskycc/astatic/attach_files/649037/download/AShare
 ```
 
 上传好后设置直链程序的权限
-![4.png](https://c8.chat/png/4.png)
+![4.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic1/4.png)
 
 ### 第四步-到你服务器的 /usr/lib/systemd/system 目录，新增启动文件
 
