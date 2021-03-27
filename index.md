@@ -1,4 +1,5 @@
 # AShare 
+###### 原作者项目github地址：https://github.com/badyun/AShare
 ###### 一款阿里云多账户直链解析程序
 ###### 支持绑定多个账号，分享单加密目录，分享单目录，批量获取文件夹内容直链，获取单文件直链，在线预览等
 
@@ -49,18 +50,18 @@ JSON.parse(localStorage.getItem('token')).refresh_token
 #出来的结果就是refresh_token
 ```
 
-![1.png](https://c8.chat/png/1.png)
+![1.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic1/1.png)
 
 
 ### 第二步-去你的宝塔新建一个站点
 
 域名设置一个你自己的域名，php版本选择纯静态
 
-![2.png](https://c8.chat/png/2.png)
+![2.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic1/2.png)
 
 
 ### 第三步-到站点 /usr/local/bin 目录，上传直链程序
-![3.png](https://c8.chat/png/3.png)
+![3.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic1/3.png)
 
 ```
 #直链程序下载地址：
@@ -69,7 +70,7 @@ JSON.parse(localStorage.getItem('token')).refresh_token
 
 全本地资源下载地址：
 
-https://one.blob.core.chinacloudapi.cn/video/AShare.exe
+https://om.ink.icu/AShare.exe
 
 静态资源加速版本(推荐)：
 
@@ -79,7 +80,7 @@ https://om.ink.icu/server/AShare.exe
 
 下载地址：
 
-https://one.blob.core.chinacloudapi.cn/video/AShare
+https://om.ink.icu/AShare
 
 静态资源加速版本(推荐)：
 
@@ -114,7 +115,7 @@ RestartSec=1s
 [Install]
 WantedBy=multi-user.target
 ```
-![5.png](https://c8.chat/png/5.png)
+![5.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic1/5.png)
 
 ### 第五步-启动服务
 登录终端后执行下面的命令可以启动服务
@@ -133,17 +134,17 @@ systemctl status AShare.service
 ```
 systemctl stop AShare.service
 ```
-![6.png](https://c8.chat/png/6.png)
+![6.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic1/6.png)
 
 如图，可以看到我程序运行的地址和账号密码
 
 再次进入第二步添加的站点设置页，添加反向代理
 代理就是就是上图看到的服务运行地址，在我这里就是
 http://127.0.0.1:5201
-![7.png](https://c8.chat/png/7.png)
+![7.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic1/7.png)
 
 ### 第六步-打开系统，根据上面安装的账号密码登录系统，开始新增阿里云盘账号
 
 点击新增账号，填入你第一步获取的refresh_token，点击确定即可
-![8.png](https://c8.chat/png/8.png)
+![8.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic1/8.png)
 
