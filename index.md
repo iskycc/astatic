@@ -1,5 +1,5 @@
 # AShare 
-###### 原作者项目github地址：https://github.com/badyun/AShare
+###### 原作者项目github地址：[https://github.com/badyun/AShare](https://github.com/badyun/AShare)
 ###### 一款阿里云多账户直链解析程序
 ###### 支持绑定多个账号，分享单加密目录，分享单目录，批量获取文件夹内容直链，获取单文件直链，在线预览等
 
