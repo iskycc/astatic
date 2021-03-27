@@ -1,37 +1,149 @@
-## Welcome to GitHub Pages
+# AShare 
+###### 一款阿里云多账户直链解析程序
+###### 支持绑定多个账号，分享单加密目录，分享单目录，批量获取文件夹内容直链，获取单文件直链，在线预览等
 
-You can use the [editor on GitHub](https://github.com/iskycc/astatic/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## 交流QQ群
+299791604
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## 安装注意事项
+如果直链作为第三方资源站的引用，需要在资源站的头部加上如下meta
+```
+<meta name=referrer content=never>
+```
+## 界面演示
+![19.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic/1.png)
 
-### Markdown
+![9.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic/2.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+![10.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic/3.png)
 
-```markdown
-Syntax highlighted code block
+![11.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic/4.png)
 
-# Header 1
-## Header 2
-### Header 3
+![12.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic/5.png)
 
-- Bulleted
-- List
+![13.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic/6.png)
 
-1. Numbered
-2. List
+![14.png](https://cdn.jsdelivr.net/gh/iskycc/astatic/pic/7.png)
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+## 直链演示
+```
+#请使用手机打开，密码是12345
+
+https://aliyundrive.icu/s/bd960a11-61e1-4ff5-a864-c89aef9286c3
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## 准备工作
 
-### Jekyll Themes
+1. 装了宝塔的linux服务器一台
+2. 在网页上登录好你的阿里云盘账号
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/iskycc/astatic/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### 第一步-获取阿里云盘的refresh_token
 
-### Support or Contact
+```
+#按下f12
+#复制下面的代码，直接到控制台执行
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+JSON.parse(localStorage.getItem('token')).refresh_token
+
+#出来的结果就是refresh_token
+```
+
+![1.png](https://c8.chat/png/1.png)
+
+
+### 第二步-去你的宝塔新建一个站点
+
+域名设置一个你自己的域名，php版本选择纯静态
+
+![2.png](https://c8.chat/png/2.png)
+
+
+### 第三步-到站点 /usr/local/bin 目录，上传直链程序
+![3.png](https://c8.chat/png/3.png)
+
+```
+#直链程序下载地址：
+
+#win版本
+
+全本地资源下载地址：
+
+https://one.blob.core.chinacloudapi.cn/video/AShare.exe
+
+静态资源加速版本(推荐)：
+
+https://om.ink.icu/server/AShare.exe
+
+#linux版本
+
+下载地址：
+
+https://one.blob.core.chinacloudapi.cn/video/AShare
+
+静态资源加速版本(推荐)：
+
+https://om.ink.icu/server/AShare
+```
+
+上传好后设置直链程序的权限
+![4.png](https://c8.chat/png/4.png)
+
+### 第四步-到你服务器的 /usr/lib/systemd/system 目录，新增启动文件
+
+文件名为：AShare.service
+
+文件内容如下：
+
+```
+[Unit]
+Description=AShare server daemon
+Documentation=no
+After=no
+Wants=no
+
+[Service]
+EnvironmentFile=no
+ExecStart=/usr/local/bin/AShare
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill -9 $MAINPID
+KillMode=process
+Restart=on-failure
+RestartSec=1s
+
+[Install]
+WantedBy=multi-user.target
+```
+![5.png](https://c8.chat/png/5.png)
+
+### 第五步-启动服务
+登录终端后执行下面的命令可以启动服务
+
+```
+systemctl start AShare.service
+```
+
+
+执行下面的名称查看程序的运行端口和初始账号密码
+```
+systemctl status AShare.service
+```
+
+如需停止服务，则执行下面的命令
+```
+systemctl stop AShare.service
+```
+![6.png](https://c8.chat/png/6.png)
+
+如图，可以看到我程序运行的地址和账号密码
+
+再次进入第二步添加的站点设置页，添加反向代理
+代理就是就是上图看到的服务运行地址，在我这里就是
+http://127.0.0.1:5201
+![7.png](https://c8.chat/png/7.png)
+
+### 第六步-打开系统，根据上面安装的账号密码登录系统，开始新增阿里云盘账号
+
+点击新增账号，填入你第一步获取的refresh_token，点击确定即可
+![8.png](https://c8.chat/png/8.png)
+
